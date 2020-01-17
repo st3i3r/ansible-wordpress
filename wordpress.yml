@@ -1,0 +1,10 @@
+- hosts: moscow-server
+  remote_user: "{{ ssh_user }}" 
+  vars_files:
+    - group_vars/vars.yml
+
+  roles:
+#     - robertdebock.httpd
+      - wp-install
+      
+

@@ -1,0 +1,14 @@
+[localhost]
+127.0.0.1
+
+centos-7 ansible_host=192.168.0.50 
+
+[wordpress-server:children]
+moscow-server
+
+[moscow-server]
+centos-7
+
+[wordpress-server:vars]
+ansible_port=22
+ansible_user=root

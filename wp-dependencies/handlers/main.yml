@@ -1,0 +1,8 @@
+---
+# handlers file for wp-dependencies
+
+- name: Restart apache
+  service:
+     name: httpd
+     state: restarted
+

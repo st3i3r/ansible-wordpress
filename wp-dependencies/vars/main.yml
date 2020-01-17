@@ -1,0 +1,8 @@
+---
+# mysql data 
+
+wp_mysql_db: test_WP
+wp_mysql_user:  test_user
+wp_mysql_password: test_password
+
+ssh_user: "root"

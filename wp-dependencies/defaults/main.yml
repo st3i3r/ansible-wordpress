@@ -1,0 +1,7 @@
+---
+# defaults file for wp-dependencies
+
+dependencies_pkg: ['policycoreutils-python', 'mariadb-server', 'mariadb',  'mysql', 'MySQL-python'] 
+
+php_modules: ['python3', 'php', 'php-mcrypt', 'php-cli', 'php-gd', 'php-curl', 'php-mysql', 'php-ldap', 'php-zip', 'php-fileinfo']
+
