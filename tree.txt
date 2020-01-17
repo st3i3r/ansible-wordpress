@@ -1,0 +1,100 @@
+.
+├── geerlingguy.pip
+│   ├── defaults
+│   │   └── main.yml
+│   ├── LICENSE
+│   ├── meta
+│   │   └── main.yml
+│   ├── molecule
+│   │   └── default
+│   │       ├── molecule.yml
+│   │       ├── playbook.yml
+│   │       ├── tests
+│   │       │   └── test_default.py
+│   │       └── yaml-lint.yml
+│   ├── README.md
+│   └── tasks
+│       └── main.yml
+├── group_vars
+│   └── vars.yml
+├── hosts
+├── requirements.yml
+├── robertdebock.httpd
+│   ├── CODE_OF_CONDUCT.md
+│   ├── CONTRIBUTING.md
+│   ├── defaults
+│   │   └── main.yml
+│   ├── handlers
+│   │   └── main.yml
+│   ├── LICENSE
+│   ├── meta
+│   │   ├── exception.yml
+│   │   ├── main.yml
+│   │   └── preferences.yml
+│   ├── molecule
+│   │   └── default
+│   │       ├── molecule.yml
+│   │       ├── playbook.yml
+│   │       ├── prepare.yml
+│   │       └── verify.yml
+│   ├── PULL_REQUEST_TEMPLATE.md
+│   ├── README.md
+│   ├── requirements.yml
+│   ├── SECURITY.md
+│   ├── tasks
+│   │   └── main.yml
+│   ├── templates
+│   │   ├── apache2.conf-Debian.j2
+│   │   ├── default_vhost.conf.j2
+│   │   ├── httpd.conf-Alpine.j2
+│   │   ├── httpd.conf-Archlinux.j2
+│   │   ├── httpd.conf-RedHat.j2
+│   │   ├── httpd.conf-Suse.j2
+│   │   ├── listen.conf.j2
+│   │   ├── location.conf.j2
+│   │   ├── ports.conf.j2
+│   │   ├── ssl.conf.j2
+│   │   └── vhost.conf.j2
+│   ├── tox.ini
+│   └── vars
+│       └── main.yml
+├── tree.txt
+├── wordpress.yml
+├── wp-dependencies
+│   ├── defaults
+│   │   └── main.yml
+│   ├── files
+│   ├── handlers
+│   │   └── main.yml
+│   ├── meta
+│   │   └── main.yml
+│   ├── README.md
+│   ├── tasks
+│   │   └── main.yml
+│   ├── templates
+│   ├── tests
+│   │   ├── inventory
+│   │   └── test.yml
+│   └── vars
+│       └── main.yml
+└── wp-install
+    ├── defaults
+    │   └── main.yml
+    ├── files
+    │   └── wordpress.tar.gz
+    ├── handlers
+    │   └── main.yml
+    ├── meta
+    │   └── main.yml
+    ├── README.md
+    ├── tasks
+    │   └── main.yml
+    ├── templates
+    │   └── wp-config.php
+    ├── tests
+    │   ├── inventory
+    │   └── test.yml
+    └── vars
+        └── main.yml
+
+35 directories, 62 files
