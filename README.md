@@ -18,7 +18,7 @@ Ansible Playbook для установки Wordpress. Данный ansible-пл�
 
 ### Установка зависимостей 
 
-* [geerlingguy.pip](https://galaxy.ansible.com/geerlingguy/pip) - Роль для установки Pip из galaxy ansible
+* [geerlingguy.pip](https://galaxy.ansible.com/geerlingguy/pip) - Роль для установки pip из galaxy ansible
 * [robertdepock.httpd](https://galaxy.ansible.com/robertdebock/httpd) - Роль для установки httpd из galaxy ansible
 
 ```
@@ -120,7 +120,7 @@ $ ansible-playbook -i hosts --vault-password-file=.vault_pass wordpress.yml
 $ ansible-playbook -i hosts --ask-vault-pass wordpress.yml
 Vault password:
 ```
-Запускать ansible-playbook с теггами
+Запускать ansible-playbook с тегами
 
 ```
 $ ansible-playbook -i hosts --ask-vault-pass wordpree.yml --tags system,database
