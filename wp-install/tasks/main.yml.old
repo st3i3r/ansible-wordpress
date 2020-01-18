@@ -1,0 +1,30 @@
+---
+# tasks file for wp-install-config
+#
+#- name: Install DB and run service
+#  include_tasks: database.yml
+#  tags:
+#    - database
+
+- name: Copy Wordpress from Ansible-server to Wordpress-server
+  copy:
+    src: files/wordpress.tar.gz 
+    dest: /tmp
+  tags:
+    - wordpress
+
+- name: Extract Wordpress to /var/www/html
+  command: tar -xvzf /tmp/wordpress.tar.gz -C /var/www/html --strip-components=1 
+  tags:
+    - wordpress
+
+- name: Copy Wordpress config file to /var/www/html
+  template:
+    src: wp-config.php
+    dest: /var/www/html/wp-config.php 
+    mode: 0644
+  tags:
+    - wordpress
+  notify:
+    - Restart apache
+

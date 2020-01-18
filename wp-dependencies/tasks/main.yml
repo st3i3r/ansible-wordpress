@@ -8,12 +8,12 @@
   tags:
     - system
 
-- name: Install epel repo, yum-utils
-  yum:
-    name: ['https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm', 'yum-utils']
-    state: present
+
+# PHP-7.0
+- name: Install php-7.0
+  include_tasks: php-7.yml
   tags:
-    - system
+    - php
 
 - name: Install dependencies
   yum: 
@@ -23,13 +23,17 @@
   tags:
     - system
 
-- name: Install httpd from galaxy ansible
-  import_role: 
-    name: robertdebock.httpd
-
-# PHP-7.0
-- name: Install php-7.0
-  include_tasks: php-7.yml
+- name: Setup database and run
+  include_tasks: database.yml
   tags:
-    - php
+    - database
+
+      #  import_role:
+      #- name: Install httpd from ansible galaxy
+      #  import_role: 
+      #    name: robertdebock.httpd
+      #  tags:
+      #    - galaxy
+      #    - httpd
+      #
 

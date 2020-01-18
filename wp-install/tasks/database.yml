@@ -1,10 +1,22 @@
 # Setup MySQL and MariaDB
 #
 
+- name: Ensure MariaDB is running/enabled
+  service:
+    name: mariadb
+    state: started
+    enabled: yes
+  tags:
+    - database
+  notify:
+    - Restart apache
+
 - name: Create MySQL Database
   mysql_db: 
     name: "{{ wp_mysql_db }}" 
     state: present
+  tags:
+    - database
   notify:
     - Restart apache
 
@@ -13,17 +25,10 @@
     login_user: "root"
     name: "{{ wp_mysql_user }}"
     password: "{{ wp_mysql_password }}" 
-    priv: '*.*:ALL,GRANT' 
+    priv: '*.*:ALL' 
+  tags:
+    - database
   notify:
     - Restart apache
 
-- name: Ensure all services are running
-  service:
-    name: "{{ items }}"
-    with_items:
-      - httpd
-      - mariadb
-    state: started
-    enabled: yes
- 
 

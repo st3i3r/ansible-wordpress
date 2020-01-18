@@ -1,28 +1,24 @@
 ---
 # tasks file for wp-install-config
 
-- name: Copy Wordpress from Ansible-server to Wordpress-server
+- name: Copy wordpress to client
   copy:
     src: files/wordpress.tar.gz 
     dest: /tmp
   tags:
     - wordpress
 
-- name: Extract Wordpress to /var/www/html
-  command: tar -xzf /tmp/wordpress.tar.gz -C /var/www/html --strip-components=1 
+- name: Разархивирование Wordpress
+  command: tar -xvzf /tmp/wordpress.tar.gz -C /var/www/html --strip-components=1 
   tags:
     - wordpress
 
-- name: Copy Wordpress config file to /var/www/html
+- name: Копирование файла конфигурации Wordpress
   template:
     src: wp-config.php
     dest: /var/www/html/wp-config.php 
     mode: 0644
   tags:
     - wordpress
-
-- name: Setup database and run
-  include_tasks: database.yml
-  tags:
-    - database
-
+  notify:
+    - Restart apache

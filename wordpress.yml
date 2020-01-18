@@ -4,6 +4,9 @@
     - group_vars/vars.yml
 
   roles:
+      - wp-dependencies
+      - geerlingguy.pip
+      - robertdebock.httpd
       - wp-install
       
 

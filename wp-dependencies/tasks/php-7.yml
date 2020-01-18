@@ -1,17 +1,24 @@
 ---
 # Install php-7.0
 #
-- name: Install php-7 repo
+- name: -- Install php-7 repo
   yum:
-    name: http://rpms.remirepo.net/enterprise/remi-release-7.rpm
+    name: ['https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm',
+           'http://rpms.remirepo.net/enterprise/remi-release-7.rpm', 'yum-utils']
     state: present
+  tags:
+    - php
 
-- name: Enable php-7.0 repo
+- name: -- Enable php-7.0 repo
   shell:
     cmd: yum-config-manager --enable remi-php70
+  tags:
+    - php
 
-- name: Install php modules
+- name: -- Install php modules
   yum:
     name: "{{ php_modules }}"
     state: latest
+  tags:
+    - php
 
