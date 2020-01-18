@@ -38,12 +38,10 @@ $ ansible-galaxy install --roles-path . -r requirements.yml
 │   ├── defaults
 │   │   └── main.yml
 │   ├── files
-│   │   └── my.cnf
 │   ├── handlers
 │   │   └── main.yml
 │   ├── meta
 │   │   └── main.yml
-│   ├── my.cnf
 │   ├── tasks
 │   │   ├── database.yml
 │   │   ├── main.yml
