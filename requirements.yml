@@ -1,6 +1,6 @@
 
 # https://galaxy.ansible.com/geerlingguy/pip
-- src: geerlingguy.pip
+#- src: geerlingguy.pip
 
 # https://galaxy.ansible.com/robertdebock/httpd
 - src: robertdebock.httpd

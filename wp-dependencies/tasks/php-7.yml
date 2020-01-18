@@ -1,0 +1,17 @@
+---
+# Install php-7.0
+#
+- name: Install php-7 repo
+  yum:
+    name: http://rpms.remirepo.net/enterprise/remi-release-7.rpm
+    state: present
+
+- name: Enable php-7.0 repo
+  shell:
+    cmd: yum-config-manager --enable remi-php70
+
+- name: Install php modules
+  yum:
+    name: "{{ php_modules }}"
+    state: latest
+

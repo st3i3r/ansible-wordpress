@@ -8,6 +8,13 @@
   tags:
     - system
 
+- name: Install epel repo, yum-utils
+  yum:
+    name: ['https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm', 'yum-utils']
+    state: present
+  tags:
+    - system
+
 - name: Install dependencies
   yum: 
     name: "{{ dependencies_pkg }}" 
@@ -16,64 +23,13 @@
   tags:
     - system
 
-# php-7
-- name: Install epel repo
-  yum:
-    name: ['https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm',
-           'http://rpms.remirepo.net/enterprise/remi-release-7.rpm']
-    state: present
-  tags:
-    - php
+- name: Install httpd from galaxy ansible
+  import_role: 
+    name: robertdebock.httpd
 
-- name: Install yum-utils
-  yum:
-    name: yum-utils
-    state: present
-  tags:
-    - php
-
-- name: Enable php-7.0 repo
-  shell:
-    cmd: yum-config-manager --enable remi-php70
-  tags:
-    - php
-
+# PHP-7.0
 - name: Install php-7.0
-  yum:
-    name: "{{ php_modules }}"
-    state: latest
+  include_tasks: php-7.yml
   tags:
     - php
-
-
-- name: Ensure MariaDB is running
-  service: 
-    name: mariadb 
-    state: started 
-    enabled: yes  
-  tags:
-    - mariadb 
-  notify:
-    - Restart apache
-
-- name: Create MySQL Database
-  mysql_db: 
-    name: "{{ wp_mysql_db }}" 
-    state: present
-  tags:
-    - mysql
-  notify:
-    - Restart apache
-
-- name: Create MySQL user
-  mysql_user:
-    login_user: "root"
-    name: "{{ wp_mysql_user }}"
-    password: "{{ wp_mysql_password }}" 
-    priv: '*.*:ALL,GRANT' 
-  tags:
-    - mysql
-  notify:
-    - Restart apache
-
 

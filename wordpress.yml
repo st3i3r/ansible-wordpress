@@ -4,7 +4,6 @@
     - group_vars/vars.yml
 
   roles:
-#     - robertdebock.httpd
       - wp-install
       
 
