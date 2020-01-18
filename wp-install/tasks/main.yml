@@ -1,19 +1,20 @@
 ---
 # tasks file for wp-install-config
+#
 
-- name: Copy wordpress to client
+- name: Copy Wordpress from Ansible-server to Wordpress-server
   copy:
     src: files/wordpress.tar.gz 
     dest: /tmp
   tags:
     - wordpress
 
-- name: Разархивирование Wordpress
-  command: tar -xvzf /tmp/wordpress.tar.gz -C /var/www/html --strip-components=1 
+- name: Extract Wordpress to /var/www/html
+  command: tar -xzf /tmp/wordpress.tar.gz -C /var/www/html --strip-components=1 
   tags:
     - wordpress
 
-- name: Копирование файла конфигурации Wordpress
+- name: Copy Wordpress config file to /var/www/html
   template:
     src: wp-config.php
     dest: /var/www/html/wp-config.php 
@@ -22,3 +23,4 @@
     - wordpress
   notify:
     - Restart apache
+

@@ -5,4 +5,3 @@
 # https://galaxy.ansible.com/robertdebock/httpd
 - src: robertdebock.httpd
 
-- src: alvistack.httpd

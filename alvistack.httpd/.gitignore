@@ -1,6 +1,0 @@
-*.log
-*.orig
-*.pyc
-*.rej
-*.retry
-__pycache__

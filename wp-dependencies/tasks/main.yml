@@ -28,12 +28,5 @@
   tags:
     - database
 
-      #  import_role:
-      #- name: Install httpd from ansible galaxy
-      #  import_role: 
-      #    name: robertdebock.httpd
-      #  tags:
-      #    - galaxy
-      #    - httpd
       #
 
