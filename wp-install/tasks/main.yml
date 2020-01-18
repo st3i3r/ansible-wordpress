@@ -1,7 +1,7 @@
 ---
 # tasks file for wp-install-config
 
-- name: Copy wordpress from Ansible-server to Wordpress-server
+- name: Copy Wordpress from Ansible-server to Wordpress-server
   copy:
     src: files/wordpress.tar.gz 
     dest: /tmp
@@ -9,7 +9,7 @@
     - wordpress
 
 - name: Extract Wordpress to /var/www/html
-  command: tar -xvzf /tmp/wordpress.tar.gz -C /var/www/html --strip-components=1 
+  command: tar -xzf /tmp/wordpress.tar.gz -C /var/www/html --strip-components=1 
   tags:
     - wordpress
 
