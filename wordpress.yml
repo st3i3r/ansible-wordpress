@@ -5,7 +5,7 @@
 
   roles:
       - wp-dependencies
-      - geerlingguy.pip
+      # - geerlingguy.pip
       - robertdebock.httpd
       - wp-install
       
